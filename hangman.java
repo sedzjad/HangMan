@@ -25,9 +25,15 @@ public class hangman {
         lettersLeft = wordLenght;
 
         for (positie = 0; positie<wordLenght; positie++){
-            buffer.append("_");
+            buffer.append("_ ");
         }
         System.out.println(buffer.toString());
+        //------------------------------------------------------
+
+        while (lettersLeft > 0 && livesTotal < 7){
+            
+        }
+
 
     }
 }
