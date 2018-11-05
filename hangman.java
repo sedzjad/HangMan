@@ -17,6 +17,7 @@ public class hangman {
         //----------------------------------------------------
 
         String[] stringLijst = new String[]{"Russia","China","Canada","Germany","Liquid","Communism","Capitalism","AlahuAkbar"};
+        String[] exit = new String[]{"exit"};
 
         System.out.println("Welcome to my game, Hang Man. You will have to guess the letters in the word. You'll see how many letters there are in a word and you have 7 lives!");
         wordGuess = stringLijst[(int)(Math.random()* stringLijst.length)];
@@ -41,7 +42,7 @@ public class hangman {
                     livesLost++;
                     System.out.println("Sorry, you have lost a life.");
                     System.out.println(livesTotal - livesLost + " left");
-                } else {
+                }  else{
                     System.out.println("That was correct!");
 
                     for (positie = 0; positie<wordLenght; positie++){
