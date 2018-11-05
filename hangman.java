@@ -31,7 +31,19 @@ public class hangman {
         //------------------------------------------------------
 
         while (lettersLeft > 0 && livesTotal < 7){
-            
+        System.out.println("Take a guess!");
+        letter = scanner.findWithinHorizon(".", 0).charAt(0);
+        wordLetters = (wordGuess.indexOf(letter))!= -1;
+        if (wordLetters == false){
+            livesLost++;
+            System.out.println("Sorry, you have lost a life.");
+            System.out.println(livesTotal - livesLost + " left");
+        } else {
+            System.out.println("That was correct!");
+        }
+
+
+
         }
 
 
