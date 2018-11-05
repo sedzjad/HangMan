@@ -32,30 +32,40 @@ public class hangman {
 
         while (lettersLeft > 0 && livesTotal < 7){
         System.out.println("Take a guess!");
-        letter = scanner.findWithinHorizon(".", 0).charAt(0);
+        letter = scanner.findWithinHorizon(".",0).charAt(0);
+
         wordLetters = (wordGuess.indexOf(letter))!= -1;
+
         if (wordLetters == false){
             livesLost++;
             System.out.println("Sorry, you have lost a life.");
             System.out.println(livesTotal - livesLost + " left");
         } else {
             System.out.println("That was correct!");
-        }
-        for (positie = 0; positie<wordLenght; positie++){
-            if (wordGuess.charAt(positie) == letter){
-                System.out.println(letter);
-                lettersLeft--;
-            } else {
-                System.out.println("_ ");
+
+            for (positie = 0; positie<wordLenght; positie++){
+                if (wordGuess.charAt(positie) == letter){
+                    System.out.println(letter);
+                    lettersLeft--;
+                } else {
+                    System.out.println("_ ");
+                }
             }
         }
+
+            lettersErvoor = buffer2.append(letter);
+            System.out.println("Letters guessed before: ");
+            System.out.println(lettersErvoor);
+            System.out.println("Letters remaining: ");
+            System.out.println(lettersLeft);
         }
-        lettersErvoor = buffer2.append(letter);
-        System.out.println("Letters guessed before: ");
-        System.out.println(lettersErvoor);
-        System.out.println("Letters remaining: ");
-        System.out.println(lettersLeft);
-        
+        //----------------------------------------------------------------------
+        if (livesLost == livesTotal){
+            System.out.println("Sorry you have lost!");
+        } else {
+            System.out.println("Congratulations, you have won! The word was: ");
+            System.out.println(wordGuess);
+        }
 
 
     }
