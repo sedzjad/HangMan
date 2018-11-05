@@ -41,10 +41,21 @@ public class hangman {
         } else {
             System.out.println("That was correct!");
         }
-
-
-
+        for (positie = 0; positie<wordLenght; positie++){
+            if (wordGuess.charAt(positie) == letter){
+                System.out.println(letter);
+                lettersLeft--;
+            } else {
+                System.out.println("_ ");
+            }
         }
+        }
+        lettersErvoor = buffer2.append(letter);
+        System.out.println("Letters guessed before: ");
+        System.out.println(lettersErvoor);
+        System.out.println("Letters remaining: ");
+        System.out.println(lettersLeft);
+        
 
 
     }
