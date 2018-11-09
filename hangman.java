@@ -1,6 +1,6 @@
 import java.util.*;
 public class hangman {
-    public static void main (String[]args){
+    public static void main(String[] args) {
         Scanner myScanner = new Scanner(System.in);
         StringBuffer buffer = new StringBuffer();
         StringBuffer buffer2 = new StringBuffer();
@@ -13,40 +13,51 @@ public class hangman {
         char latters;
         StringBuffer lettersErvoor;
         int positie;
-        boolean playing = true;
-        //----------------------------------------------------
+        boolean active;
 
-        String[] stringLijst = new String[]{"Russia","China","Canada","Germany","Liquid","Communism","Capitalism","AlahuAkbar"};
-        String[] exit = new String[]{"exit"};
+
+        //----------------------------------------------------
+        String[] verlaten = new String[]{"exit"};
+        String[] stringLijst = new String[]{"Russia", "China", "Canada", "Germany", "Liquid", "Communism", "Capitalism", "AlahuAkbar"};
+        String input = "";
 
         System.out.println("Welcome to my game, Hang Man. You will have to guess the letters in the word. You'll see how many letters there are in a word and you have 7 lives!");
-        wordGuess = stringLijst[(int)(Math.random()* stringLijst.length)];
+        wordGuess = stringLijst[(int) (Math.random() * stringLijst.length)];
         wordLenght = wordGuess.length();
 
         System.out.println("The word you're guessing has " + wordLenght + " letters in it.");
         lettersLeft = wordLenght;
 
-        for (positie = 0; positie<wordLenght; positie++){
+        for (positie = 0; positie < wordLenght; positie++) {
             buffer.append("_ ");
         }
         System.out.println(buffer.toString());
         //------------------------------------------------------
+        active = false;
 
-        while (lettersLeft > 0 && livesTotal <= 7){
+        System.out.println("Type Exit to exit.");
+        input = myScanner.nextLine();
+        if(input.equals(verlaten[0])){
+            active = true;
+        }
+        while (!active) {
+
+
+            while (lettersLeft > 0 && livesTotal <= 7) {
                 System.out.println("Take a guess!");
-                latters = myScanner.findWithinHorizon(".",0).charAt(0);
+                latters = myScanner.findWithinHorizon(".", 0).charAt(0);
 
-                wordLetters = (wordGuess.indexOf(latters))!= -1;
+                wordLetters = (wordGuess.indexOf(latters)) != -1;
 
-                if (wordLetters == false){
+                if (wordLetters == false) {
                     livesLost++;
                     System.out.println("Sorry, you have lost a life.");
                     System.out.println(livesTotal - livesLost + " left");
-                }  else{
+                } else {
                     System.out.println("That was correct!");
 
-                    for (positie = 0; positie<wordLenght; positie++){
-                        if (wordGuess.charAt(positie) == latters){
+                    for (positie = 0; positie < wordLenght; positie++) {
+                        if (wordGuess.charAt(positie) == latters) {
                             System.out.println(latters);
                             lettersLeft--;
                         } else {
@@ -59,15 +70,16 @@ public class hangman {
                 System.out.println(lettersErvoor);
                 System.out.println("Letters remaining: ");
                 System.out.println(lettersLeft);
-        }
-        //----------------------------------------------------------------------
-        if (livesLost == livesTotal){
-            System.out.println("Sorry you have lost!");
-        } else {
-            System.out.println("Congratulations, you have won! The word was: ");
-            System.out.println(wordGuess);
-        }
+            }
+            //----------------------------------------------------------------------
+            if (livesLost == livesTotal) {
+                System.out.println("Sorry you have lost!");
+            } else {
+                System.out.println("Congratulations, you have won! The word was: ");
+                System.out.println(wordGuess);
+            }
 
 
+        }
     }
 }
