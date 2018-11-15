@@ -81,7 +81,7 @@ public class hangman {
 
                 System.out.println("Congratulations, you have won! The word was: ");
                 System.out.println(wordGuess);
-                active = false;
+                active = true;
             //----------------------------------------------------------------------
 
 
