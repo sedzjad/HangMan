@@ -35,11 +35,13 @@ public class hangman {
         //------------------------------------------------------
         active = false;
 
-        System.out.println("Type Exit to exit.");
+        System.out.println("Type exit to exit.");
+        System.out.println("If you wish to continue press enter.");
         input = myScanner.nextLine();
         if(input.equals(verlaten[0])){
             active = true;
         }
+
         while (!active) {
 
 
@@ -70,14 +72,17 @@ public class hangman {
                 System.out.println(lettersErvoor);
                 System.out.println("Letters remaining: ");
                 System.out.println(lettersLeft);
-            }
-            //----------------------------------------------------------------------
-            if (livesLost == livesTotal) {
-                System.out.println("Sorry you have lost!");
-            } else {
+
+                if (livesLost == livesTotal) {
+                    System.out.println("Sorry you have lost!");
+                    System.exit(1);
+                }
+                }
+
                 System.out.println("Congratulations, you have won! The word was: ");
                 System.out.println(wordGuess);
-            }
+
+            //----------------------------------------------------------------------
 
 
         }
