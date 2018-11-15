@@ -35,7 +35,7 @@ public class hangman {
         //------------------------------------------------------
         active = false;
 
-        System.out.println("Type exit to exit.");
+        System.out.println("Type exit to exit. To continue press Enter");
         System.out.println("If you wish to continue press enter.");
         input = myScanner.nextLine();
         if(input.equals(verlaten[0])){
